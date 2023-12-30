@@ -101,40 +101,181 @@ From the above characteristic table, we can directly write the next state equati
 Q(t+1)=T′Q(t)+TQ(t)′
 ⇒Q(t+1)=T⊕Q(t)
 
-### Procedure
-/* write all the steps invloved */
+### Procedure:
+
+1.Using nand gates and wires construct sr flip flop.
+
+2.Repeat same steps to construct JK,D,T flipflops. 
+
+3.Find Rtl logic and timing diagram for all flipflops.
+
+4.end the program
 
 
 
-### PROGRAM 
-/*
-Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+### PROGRAM:
+
+SR flipflop:
+
+module sr(S,R,clk,Q,Qbar);	
+
+input S,R,clk;
+
+output reg Q; 
+
+output reg Qbar;
+
+initial Q=0;
+
+initial Qbar=1;
+
+always @(posedge clk)
+
+begin
+
+Q=S|((~R)&Q);
+
+Qbar=R|((~S)&(Qbar)); 
+
+end
+
+endmodule
+
+JK flipflop:
+
+module jk(J,K,clk,Q,Qbar);
+
+input J,K,clk;
+
+output reg Q;
+
+output reg Qbar;
+
+initial Q=0; 
+
+initial Qbar=1;
+
+always @(posedge clk) 
+
+begin
+
+Q=(J&(~Q))|((~K)&Q);
+
+Qbar=((~J)&(Qbar))|K&(~Qbar);
+
+end
+
+endmodule
+
+D flipflop:
+
+module d(d,clk,q,qbar);	
+
+input d,clk;
+
+output q,qbar;
+
+reg q,qbar;
+
+always @(posedge clk)
+
+begin
+
+q=d; qbar=~q; 
+
+end 
+
+endmodule
+
+T flipflop:
+
+module t(clk,T,q,qbar);	
+
+input clk,T;
+
+output q,qbar;
+
+reg q,qbar;
+
+always @(posedge clk)
+
+begin
+
+q=(T&~q)|(~T&q);
+
+qbar=~q;
+
+end
+
+endmodule
+
+
+Developed by: Vinodini R
+
+RegisterNumber: 212223040244 
 
 
 
+### RTL SCHEMATIC DIAGRAM FOR FLIPFLOPS:
+
+SR flipflops:
+
+<img width="367" alt="image" src="https://github.com/vinodini17/Experiment--05-Implementation-of-flipflops-using-verilog/assets/149347288/725d3103-d7d7-4441-a083-826e9b3d6905">
+
+JK flipflops:
+
+<img width="371" alt="image" src="https://github.com/vinodini17/Experiment--05-Implementation-of-flipflops-using-verilog/assets/149347288/5d60dc21-4abe-4eb1-a8ac-9fc48efd0727">
+
+D flipflops:
+
+<img width="273" alt="image" src="https://github.com/vinodini17/Experiment--05-Implementation-of-flipflops-using-verilog/assets/149347288/c05f5b6d-8d0f-444f-804f-4bfd57587f3b">
+
+T flipflops:
+
+<img width="425" alt="image" src="https://github.com/vinodini17/Experiment--05-Implementation-of-flipflops-using-verilog/assets/149347288/541e87b2-abec-4c69-b3f0-fa8850d0232e">
+
+### TRUTH TABLE:
+
+SR flipflops:
+
+<img width="236" alt="image" src="https://github.com/vinodini17/Experiment--05-Implementation-of-flipflops-using-verilog/assets/149347288/fe912568-d785-4f51-9ad6-8b33c78bfce3">
+
+JK flipflops:
+
+<img width="237" alt="image" src="https://github.com/vinodini17/Experiment--05-Implementation-of-flipflops-using-verilog/assets/149347288/85384a71-7376-4f9a-8dc7-242f85a6bdd7">
 
 
+D flipflops:
 
-### RTL LOGIC FOR FLIPFLOPS 
+<img width="178" alt="image" src="https://github.com/vinodini17/Experiment--05-Implementation-of-flipflops-using-verilog/assets/149347288/e2c620b6-cbb7-45e2-8318-d92e01bb228c">
 
+T flipflops:
 
-
-
-
-
-
+<img width="174" alt="image" src="https://github.com/vinodini17/Experiment--05-Implementation-of-flipflops-using-verilog/assets/149347288/d0a43122-6768-4828-bab9-2f275b17e231">
 
 
-### TIMING DIGRAMS FOR FLIP FLOPS 
+### TIMING DIGRAMS FOR FLIP FLOPS:
+
+SR flipflops:
+
+<img width="455" alt="image" src="https://github.com/vinodini17/Experiment--05-Implementation-of-flipflops-using-verilog/assets/149347288/80368f37-d74e-4e28-80e0-c0952f2279f5">
 
 
+JK flipflops:
+
+<img width="457" alt="image" src="https://github.com/vinodini17/Experiment--05-Implementation-of-flipflops-using-verilog/assets/149347288/02a8cba5-d286-4757-9340-6daf35c9e657">
+
+D flipflops:
+
+<img width="457" alt="image" src="https://github.com/vinodini17/Experiment--05-Implementation-of-flipflops-using-verilog/assets/149347288/cfdf5cff-4da4-416a-a0d7-6115974e0270">
 
 
+T flipflops:
+
+<img width="504" alt="image" src="https://github.com/vinodini17/Experiment--05-Implementation-of-flipflops-using-verilog/assets/149347288/6279d6c0-19c2-4f0e-994e-4f1aaddc66ae">
 
 
+### RESULTS:
 
+Thus implementation of SR,JK,D and T flipflops using nand gates are done sucessfully.
 
-### RESULTS 
