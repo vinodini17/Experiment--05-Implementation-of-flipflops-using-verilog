@@ -275,7 +275,4 @@ T flipflops:
 <img width="504" alt="image" src="https://github.com/vinodini17/Experiment--05-Implementation-of-flipflops-using-verilog/assets/149347288/6279d6c0-19c2-4f0e-994e-4f1aaddc66ae">
 
 
-### RESULTS:
-
-Thus implementation of SR,JK,D and T flipflops using nand gates are done sucessfully.
 
